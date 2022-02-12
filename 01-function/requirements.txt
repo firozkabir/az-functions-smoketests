@@ -4,3 +4,4 @@ azure-functions
 azure-keyvault
 azure-identity
 cx-Oracle==8.3.0
+requests

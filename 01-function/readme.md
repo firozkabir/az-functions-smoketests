@@ -1,17 +1,20 @@
 # Azure Functions 
-There are two `HttpTrigger` functions in this functions app: 
+There are three `HttpTrigger` functions in this functions app: 
 * `/api/httpBasic`
+* `/api/httpIp`
 * `/api/httpOracle`
 
 
 # How to invoke: 
-* Both functions use `authLevel: anonymous`
+* All functions use `authLevel: anonymous`. So they can be called by anyone.
 * Call httpBasic as `https://<function-app-url>/api/httpBase?sisid=<any-number>` to get a response like `{"sisid": "<any-number>"}`
+* Call httpIp as `https://<function-app-url>/api/httpIp?sisid=<any-number>` to get a response like `{"sisid": "<any-number>", "ip": "<public-ip-of-server>"}`
 * Call httpOracle as `https://<function-app-url>/api/httpBase?sisid=<any-number>` to get a response like `{"sisid": "<any-number>", "version": "<Oracle Database Version>"}`
 
 
 # What is happening inside: 
 * httpBasic is simply taking the sisid parameter passing it to response
+* httpIp is calling https://icanhazip.com and returing it in response along with sisid parameter supplied in the request
 * httpOracle does the same as httpBasic. Only it also connects to an Oracle database and returns its version in the response. This is to validate your function app can connect to the database.
 
 
