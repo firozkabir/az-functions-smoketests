@@ -26,10 +26,11 @@ There are two `HttpTrigger` functions in this functions app:
 * You'll need to provide `client-id`, `tenant-id` and `client-secret` from the SPN as well as `keyvault-name` as build arguments: 
 
 ```bash
-docker build --no-cache --build-arg CLIENT_ID="<client-id>" \
+docker build --tag <DOCKER_ID>/eip-smoketest-2022:latest \
+--no-cache --build-arg CLIENT_ID="<client-id>" \
 --build-arg  TENANT_ID="<tenant-id>" \
 --build-arg  CLIENT_SECRET="<client-secret>" \
---build-arg  KEYVAULT_NAME="<keyvault-name>" .
+--build-arg  KEYVAULT_NAME="<keyvault-name>" . 
 ```
 
 * This means credentials needed to get to the keyvault are only used during compilation. Natuarally, the image will have to be re-built if keyvault credentials change. 
