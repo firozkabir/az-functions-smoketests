@@ -1,0 +1,3 @@
+[DEFAULT]
+CONNECTION_STR = "<connection-string-from-service-bus-console>"
+QUEUE_NAME = "<queue-name>"
